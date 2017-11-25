@@ -1,0 +1,14 @@
+{
+  "name": "googlelogin",
+  "app_id": "38b2eadd",
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {}
+  },
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}
