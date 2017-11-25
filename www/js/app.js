@@ -23,7 +23,27 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.controller("myCtrl", function($scope) {
+.controller("myCtrl", function($scope, $state, $ionicLoading) {
   $scope.firstName = "Surajit";
   $scope.lastName = "Sadhukhan";
+  $scope.googleSignIn = function() {
+    $ionicLoading.show({
+      template: 'Logging in...'
+    });
+    window.plugins.googleplus.login(
+      {},
+      function (user_data) {
+        // For the purpose of this example I will store user data on local storage
+        console.log("user data get");
+        console.log(user_data);
+        $ionicLoading.hide();
+        //$state.go('app.home');
+      },
+      function (msg) {
+        console.log("could not login");
+        console.log(msg);
+        $ionicLoading.hide();
+      }
+    );
+  };
 });
