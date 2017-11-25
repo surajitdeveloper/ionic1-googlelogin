@@ -22,3 +22,8 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.controller("myCtrl", function($scope) {
+  $scope.firstName = "Surajit";
+  $scope.lastName = "Sadhukhan";
+});
