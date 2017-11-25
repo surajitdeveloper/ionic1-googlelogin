@@ -26,6 +26,8 @@ angular.module('starter', ['ionic'])
 .controller("myCtrl", function($scope, $state, $ionicLoading) {
   $scope.firstName = "Surajit";
   $scope.lastName = "Sadhukhan";
+  var result = "";
+  $scope.result = "";
   $scope.googleSignIn = function() {
     $ionicLoading.show({
       template: 'Logging in...'
@@ -36,12 +38,16 @@ angular.module('starter', ['ionic'])
         // For the purpose of this example I will store user data on local storage
         console.log("user data get");
         console.log(user_data);
+        result += "Success<br>"+JSON.stringify(user_data);
+        $scope.result = result;
         $ionicLoading.hide();
         //$state.go('app.home');
       },
       function (msg) {
         console.log("could not login");
         console.log(msg);
+        result += "Failed<br>"+JSON.stringify(msg);
+        $scope.result = result;
         $ionicLoading.hide();
       }
     );
